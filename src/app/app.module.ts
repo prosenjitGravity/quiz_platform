@@ -17,12 +17,27 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
+import { ExamPageComponent } from './components/exam-page/exam-page.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { LayoutModule } from '@angular/cdk/layout';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { FooterComponent } from './components/footer/footer.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { TestPageComponent } from './components/test-page/test-page.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     FrontPageComponent,
+    ExamPageComponent,
+    NotFoundComponent,
+    AdminLoginComponent,
+    FooterComponent,
+    TestPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +51,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatListModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule,MatRadioModule
+    MatInputModule,MatRadioModule, MatGridListModule, MatMenuModule, LayoutModule,MatTooltipModule,MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

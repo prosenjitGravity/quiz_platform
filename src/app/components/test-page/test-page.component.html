@@ -1,0 +1,37 @@
+<mat-toolbar>
+  <span>Welcome, {{ name | titlecase }}</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-flat-button
+    class="start"
+    style="background-color: #068932; color: white"
+  >
+    Start
+  </button>
+  <span class="p-1"> Time : </span>
+</mat-toolbar>
+<div class="conatiner-fluid">
+  <div class="card">
+    <h1 class="text-center p-1">
+      Question : How many types of directives are there in Angular ?
+    </h1>
+    <hr />
+    <!-- <label id="example-radio-group-label">Question : How many types of directives are there in Angular ?</label> -->
+    <div class="container">
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="favoriteSeason"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let season of seasons"
+          [value]="season"
+        >
+          {{ season }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div>Your favorite season is: {{ favoriteSeason }}</div>
+  </div>
+</div>

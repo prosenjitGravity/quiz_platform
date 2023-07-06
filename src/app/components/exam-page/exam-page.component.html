@@ -1,0 +1,133 @@
+<div class="container-fluid" style="background-color: #f3f7f7">
+  <div class="row">
+    <div class="col-md-6" style="background-color: white">
+      <div style="margin-top: 20px">
+        <h1 class="text p-3" style="font-weight: 500">
+          Gravity Quiz Challenge
+        </h1>
+      </div>
+      <div>
+        <div class="display-5 p-3" style="font-weight: 500">
+          Welcome to Gravity Quiz {{ subject }} Skill Test
+        </div>
+        <div class="p-3">
+          <h1 class="text">Instructions</h1>
+          <mat-list role="list">
+            <mat-list-item role="listitem"
+              ><mat-icon matListItemIcon>timer</mat-icon> This is a timed test.
+              Please make sure you are not interrupted during the test,<br />
+              as the timer cannot be paused once started.</mat-list-item
+            >
+            <mat-list-item role="listitem">
+              <mat-icon matListItemIcon>wifi</mat-icon> Please ensure you have a
+              stable internet connection.</mat-list-item
+            >
+          </mat-list>
+        </div>
+        <div class="exam-details">
+          <div class="info p-2">
+            <p>Test Duration</p>
+            <h1 style="color: #068932">15 min</h1>
+          </div>
+          <div class="info p-2">
+            <p style="font-size: 15px; font-size: bolder">No. of questions</p>
+            <h1 style="color: #068932">10 questions</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6" style="background-color: #f3f7f7; height: 100%">
+      <div class="card1 p-2" style="margin-top: 20px">
+        <div>
+          <h1 class="text">Environment Setup</h1>
+          <mat-list>
+            <mat-list-item>
+              <mat-icon matListItemIcon style="color: #068932"
+                >task_alt</mat-icon
+              >
+              <span matListItemTitle>Your environment is ready</span>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon matListItemIcon style="color: #068932"
+                >task_alt</mat-icon
+              >
+              <span matListItemTitle>Servers provisioned</span>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <div>
+          <form  [formGroup]="userData" (ngSubmit)="onSubmit()">
+          <mat-card>
+            <!-- <mat-card-header>{{first_name}}</mat-card-header> -->
+            <mat-card-content>
+              <mat-form-field class="mat-50">
+                <mat-label>First Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Albert"
+                  formControlName="first_name"
+                  required
+                />
+                <mat-error *ngIf="userData.get('first_name').hasError('pattern')&& userData.get('first_name').invalid &&( userData.get('first_name').touched||userData.get('first_name').dirty)">please enter the  <strong> Valid name </strong></mat-error>
+              </mat-form-field>
+              <mat-form-field class="mat-50">
+                <mat-label>Last Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Einstein"
+                  formControlName="last_name"
+                  required
+                />
+                <mat-error *ngIf="userData.get('last_name').hasError('pattern')&& userData.get('last_name').invalid &&( userData.get('last_name').touched||userData.get('last_name').dirty)">please enter <strong> valid last name </strong></mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input
+                  matInput
+                  placeholder="example123@example.com"
+                  type="email"
+                  name="email"
+                  formControlName="email"
+                  required
+                />
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="userData.get('email').hasError('pattern')&& userData.get('email').invalid &&( userData.get('email').touched||userData.get('email').dirty)">Please enter a valid email   <strong> id or use @. </strong></mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Phone</mat-label>
+                <input
+                  matInput
+                  placeholder="10 digit number"
+                  type="number"
+                  formControlName="phone"
+                  required
+                />
+                <mat-icon matSuffix>phone</mat-icon>       
+                <mat-error *ngIf="userData.get('phone').hasError('phone')&& userData.get('phone').invalid &&( userData.get('phone').touched||userData.get('phone').dirty)"
+                  >please enter <strong> 10 digit number </strong></mat-error
+                >
+              </mat-form-field>
+
+              <mat-radio-group
+                aria-label="Select an option"
+                formControlName="gender"
+              >
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+              </mat-radio-group>
+            </mat-card-content>
+            <mat-card-actions class="d-flex justify-content-center">
+              <div >
+                <button mat-raised-button [disabled]="userData.invalid" matTooltip="{{userData.valid}}" type="submit" style="background-color:#068932 ;color:white" [routerLink]="['/test']">Go to Test</button>
+              </div>
+            </mat-card-actions>
+            <!-- <mat-card-footer>
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </mat-card-footer> -->
+          </mat-card>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

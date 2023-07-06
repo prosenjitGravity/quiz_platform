@@ -1,156 +1,94 @@
-<div class="container">
-  <article>
-    <section>
-      <div class="container-fluid">
-        <div class="row">
-          <!--style="background-color: #f3f2ef;"-->
-          <div class="col-md-6 p-3">
-            <div class="p-1">
-              <h1 class="text-center activity" style="color: #616161">
-                Online Quiz Competition
-              </h1>
-              <p
-                class="text-left"
-                style="
-                  color: #616161;
-                  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-                    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-                    'Helvetica Neue', sans-serif, monospace;
-                  font-size: 18px;
-                "
-              >
-                Attend a live demo with one of our product experts, who can
-                share more about how we help teams like yours hire talent with
-                the tech skills you need to innovate. You'll see how to:
-              </p>
-            </div>
-            <div>
-              <mat-list role="list">
-                <mat-list-item role="listitem"
-                  ><span> <mat-icon class="p-1">done</mat-icon> </span>
-                  Standardize your hiring process
-                </mat-list-item>
-                <mat-list-item role="listitem"
-                  ><span> <mat-icon class="p-1">done</mat-icon> </span>
-                  Screen and interview more effectively and without bias
-                </mat-list-item>
-                <mat-list-item role="listitem"
-                  ><span> <mat-icon class="p-1">done</mat-icon> </span>
-                  Make informed, skills-based hiring decisions — every time
-                </mat-list-item>
-              </mat-list>
-            </div>
-            <div class="d-flex justify-content-center p-2">
-              <button mat-fab extended color="primary" class="btn">
-                Join Us Now
-              </button>
-            </div>
-          </div>
-          <div class="col-md-6 p-3">
-            <div class="">
-              <form [formGroup]="formData" (ngSubmit)="onSubmit()">
-                <mat-card>
-                  <mat-card-header>
-                    <mat-card-title>Register</mat-card-title>
-                    <mat-card-subtitle *ngIf="user_name.length >= 3"
-                      >Hi, {{ user_name }}</mat-card-subtitle
-                    >
-                  </mat-card-header>
-                  <mat-card-content>
-                    <mat-form-field class="mat-50">
-                      <mat-label>First Name</mat-label>
-                      <input
-                        matInput
-                        placeholder="Albert"
-                        formControlName="first_name"
-                        [(ngModel)]="user_name"
-                      />
-                      <mat-error
-                        *ngIf="
-                          formData.get('first_name').hasError('pattern') &&
-                          formData.get('first_name').touched
-                        "
-                        >First name is <strong> required </strong></mat-error
-                      >
-                    </mat-form-field>
-                    <mat-form-field class="mat-50">
-                      <mat-label>Last Name</mat-label>
-                      <input
-                        matInput
-                        placeholder="Einstein"
-                        formControlName="last_name"
-                      />
-                      <mat-error
-                        *ngIf="
-                          formData.get('last_name').hasError('pattern') &&
-                          formData.get('last_name').touched
-                        "
-                        >Last name is <strong> required </strong></mat-error
-                      >
-                    </mat-form-field>
-                    <mat-form-field>
-                      <mat-label>Email</mat-label>
-                      <input
-                        matInput
-                        placeholder="example123@example.com"
-                        type="email"
-                        name="email"
-                        formControlName="email"
-                      />
-                      <mat-icon matSuffix>email</mat-icon>
-                      <mat-error
-                        *ngIf="
-                          formData.get('email').hasError('pattern') &&
-                          formData.get('email').touched
-                        "
-                        >Email is <strong> required </strong></mat-error
-                      >
-                    </mat-form-field>
-                    <mat-form-field>
-                      <mat-label>Phone</mat-label>
-                      <input
-                        matInput
-                        placeholder="10 digit phone number"
-                        type="number"
-                        formControlName="phone"
-                      />
-                      <mat-icon matSuffix>phone</mat-icon>
-                      <mat-error
-                        *ngIf="
-                          formData.get('phone').hasError('pattern') &&
-                          formData.get('phone').touched
-                        "
-                        >Phone number is <strong> required </strong></mat-error
-                      >
-                    </mat-form-field>
-                    <mat-radio-group
-                      color="primary"
-                      aria-label="Select an option"
-                      formControlName="gender"
-                    >
-                      <mat-radio-button value="Male">Male</mat-radio-button>
-                      <mat-radio-button value="Female">Female</mat-radio-button>
-                      <mat-error>gender is</mat-error>
-                    </mat-radio-group>
-                  </mat-card-content>
-                  <mat-card-actions class="relative">
-                    <div class="absolute2">
-                      <button
-                        mat-raised-button
-                        type="submit"
-                        [disabled]="formData.invalid"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </mat-card-actions>
-                </mat-card>
-              </form>
-            </div>
-          </div>
+<app-toolbar></app-toolbar>
+
+<div class="container-fluid" style="background-color: #050c1b">
+  <div>
+    <h1 class="p-3 text">Angular (Basic) Skills Certification Test</h1>
+  </div>
+  <hr class="text" />
+  <div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="p-4">
+          <h1 class="text-left text" style="font-weight: 500; font-size: 25px">
+            Verify your Angular Skills. Accelerate your Job Search.
+          </h1>
+          <p class="text1">
+            Take the HackerRank Skills Certification Test and showcase your
+            knowledge as a HackerRank verified developer.
+          </p>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button
+            mat-raised-button
+            style="background-color: #1ba94c; color: white"
+            [routerLink]="['/exam']"
+          >
+            Take the Gravity Skills Test
+          </button>
         </div>
       </div>
-    </section>
-  </article>
+      <div class="col-md-6 p-3">
+        <img
+          src="assets/images/hackerrank_svg.svg"
+          class="img-fluid"
+          alt=""
+          style="height: 400px"
+        />
+      </div>
+    </div>
+  </div>
+  <div style="background-color: #1d2432">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="p-4">
+          <h1 class="text text-center">Skill over pedigree</h1>
+          <img
+            src="assets/images/time.svg"
+            class="img-fluid"
+            alt=""
+            style="height: 400px"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="p-4">
+          <mat-list>
+            <mat-list-item style="margin-bottom: 10px">
+              <mat-icon matListItemIcon style="color: white">verified</mat-icon>
+              <div
+                matListItemTitle
+                style="font-size: 25px; font-weight: 700; color: aliceblue"
+              >
+                Prove your Skills
+              </div>
+              <div matListItemLine style="color: #d3d3d3">
+                The Gravity Skills Certification Test is a standardized
+                assessment to help <br />
+                developers prove their coding skills.
+              </div>
+            </mat-list-item>
+            <mat-list-item style="margin-top: 10px">
+              <mat-icon matListItemIcon style="color: white"
+                ><span class="material-symbols-outlined">
+                  flag_circle
+                </span></mat-icon
+              >
+              <div
+                matListItemTitle
+                style="font-size: 25px; font-weight: 700; color: aliceblue"
+              >
+                Get noticed by companies
+              </div>
+              <div matListItemLine style="color: #d3d3d3">
+                Candidates who successfully clear the test will be specially
+                highlighted to <br />companies when they apply to relevant
+                roles.
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
 </div>
-<div></div>
