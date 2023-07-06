@@ -1,0 +1,156 @@
+<div class="container">
+  <article>
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <!--style="background-color: #f3f2ef;"-->
+          <div class="col-md-6 p-3">
+            <div class="p-1">
+              <h1 class="text-center activity" style="color: #616161">
+                Online Quiz Competition
+              </h1>
+              <p
+                class="text-left"
+                style="
+                  color: #616161;
+                  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                    'Helvetica Neue', sans-serif, monospace;
+                  font-size: 18px;
+                "
+              >
+                Attend a live demo with one of our product experts, who can
+                share more about how we help teams like yours hire talent with
+                the tech skills you need to innovate. You'll see how to:
+              </p>
+            </div>
+            <div>
+              <mat-list role="list">
+                <mat-list-item role="listitem"
+                  ><span> <mat-icon class="p-1">done</mat-icon> </span>
+                  Standardize your hiring process
+                </mat-list-item>
+                <mat-list-item role="listitem"
+                  ><span> <mat-icon class="p-1">done</mat-icon> </span>
+                  Screen and interview more effectively and without bias
+                </mat-list-item>
+                <mat-list-item role="listitem"
+                  ><span> <mat-icon class="p-1">done</mat-icon> </span>
+                  Make informed, skills-based hiring decisions — every time
+                </mat-list-item>
+              </mat-list>
+            </div>
+            <div class="d-flex justify-content-center p-2">
+              <button mat-fab extended color="primary" class="btn">
+                Join Us Now
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6 p-3">
+            <div class="">
+              <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+                <mat-card>
+                  <mat-card-header>
+                    <mat-card-title>Register</mat-card-title>
+                    <mat-card-subtitle *ngIf="user_name.length >= 3"
+                      >Hi, {{ user_name }}</mat-card-subtitle
+                    >
+                  </mat-card-header>
+                  <mat-card-content>
+                    <mat-form-field class="mat-50">
+                      <mat-label>First Name</mat-label>
+                      <input
+                        matInput
+                        placeholder="Albert"
+                        formControlName="first_name"
+                        [(ngModel)]="user_name"
+                      />
+                      <mat-error
+                        *ngIf="
+                          formData.get('first_name').hasError('pattern') &&
+                          formData.get('first_name').touched
+                        "
+                        >First name is <strong> required </strong></mat-error
+                      >
+                    </mat-form-field>
+                    <mat-form-field class="mat-50">
+                      <mat-label>Last Name</mat-label>
+                      <input
+                        matInput
+                        placeholder="Einstein"
+                        formControlName="last_name"
+                      />
+                      <mat-error
+                        *ngIf="
+                          formData.get('last_name').hasError('pattern') &&
+                          formData.get('last_name').touched
+                        "
+                        >Last name is <strong> required </strong></mat-error
+                      >
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Email</mat-label>
+                      <input
+                        matInput
+                        placeholder="example123@example.com"
+                        type="email"
+                        name="email"
+                        formControlName="email"
+                      />
+                      <mat-icon matSuffix>email</mat-icon>
+                      <mat-error
+                        *ngIf="
+                          formData.get('email').hasError('pattern') &&
+                          formData.get('email').touched
+                        "
+                        >Email is <strong> required </strong></mat-error
+                      >
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Phone</mat-label>
+                      <input
+                        matInput
+                        placeholder="10 digit phone number"
+                        type="number"
+                        formControlName="phone"
+                      />
+                      <mat-icon matSuffix>phone</mat-icon>
+                      <mat-error
+                        *ngIf="
+                          formData.get('phone').hasError('pattern') &&
+                          formData.get('phone').touched
+                        "
+                        >Phone number is <strong> required </strong></mat-error
+                      >
+                    </mat-form-field>
+                    <mat-radio-group
+                      color="primary"
+                      aria-label="Select an option"
+                      formControlName="gender"
+                    >
+                      <mat-radio-button value="Male">Male</mat-radio-button>
+                      <mat-radio-button value="Female">Female</mat-radio-button>
+                      <mat-error>gender is</mat-error>
+                    </mat-radio-group>
+                  </mat-card-content>
+                  <mat-card-actions class="relative">
+                    <div class="absolute2">
+                      <button
+                        mat-raised-button
+                        type="submit"
+                        [disabled]="formData.invalid"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-card>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</div>
+<div></div>

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap');
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.logo{
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 900;
+}
+  .sticky {
+    height: 64px;
+    opacity: 1;
+    z-index: 999;
+    transition: opacity 0.25s ease-out, height 0.15s ease;
+  }

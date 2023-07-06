@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
+
+
+.activity{
+    font-size: 250%;
+    font-weight: 900;
+    line-height: 45px;  
+    font-family: 'JetBrains Mono', monospace;
+}
+.btn:hover{
+    background-color: #073042;
+    color: white;
+}
+.developer{
+    color: #616161;
+    font-weight: bolder;
+    font-size: 230%;
+    font-family: 'JetBrains Mono', monospace;
+}
+  
+  mat-card{
+    margin: 2px;
+    text-align: left;
+ }
+ .mat-mdc-form-field{
+    width: 98%;
+    margin: 1%;
+ }
+ .mat-50{
+    width: 48%;
+    margin: 1%;
+ }
+  
