@@ -1,0 +1,49 @@
+<div>
+    <mat-toolbar class="sticky">
+      <mat-toolbar-row>
+        <span [routerLink]="'/'" class="user-title">Welcome,{{ 'first_name'|titlecase }}</span>
+        <span class="example-spacer"></span>
+        <div>  
+          <button mat-button class="project-title" [matMenuTriggerFor]="menu">
+            <div class="profile">
+              <img src="assets/images/login.jpg" class="image" alt="" />
+            </div>
+          </button>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <mat-toolbar class="secondToolbar"
+               [ngClass]="{'mat-elevation-z5' : true, 'sticky' : isSticky}">
+               <mat-toolbar-row>
+                <span [routerLink]="'/'" class="user-title">Welcome,{{ 'first_name'| titlecase }}</span>
+                <span class="example-spacer"></span>
+                <div>
+                  <button mat-icon-button [routerLink]="['/all-post']">
+                    <mat-icon>home</mat-icon>
+                  </button>
+                  <button mat-icon-button  class="project-title">
+                    <mat-icon matBadge="0" matBadgeColor="warn">notifications</mat-icon>
+                    <span class="cdk-visually-hidden"></span>
+                  </button>
+                  <button mat-icon-button routerLink="/help">
+                    <mat-icon>live_help</mat-icon>
+                  </button>
+                  <button mat-button class="project-title"  [matMenuTriggerFor]="menu">
+                    <div class="profile">
+                      <img src="assets/images/login.jpg" class="image" alt="" />
+                    </div>
+                  </button>
+                </div>
+              </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item color="primary" [routerLink]="['/my-profile']">
+      <mat-icon color="primary">account_circle</mat-icon>
+      <span>Profile</span>
+    </button>
+    <button mat-menu-item color="warn" (click)="logout()">
+      <mat-icon color="warn">logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>

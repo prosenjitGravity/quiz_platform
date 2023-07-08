@@ -16,7 +16,7 @@
 .navigation-bar{
   background-color: #081a3ff5;
 }
-button{
+btn{
   background-color: #1ba94c;
   color: white;
 }
@@ -31,3 +31,7 @@ button{
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 } */
+.active-link{
+  background-color: #1ba94c;
+  color:white
+}

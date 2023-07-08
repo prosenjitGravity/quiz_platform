@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200&family=Noto+Sans&display=swap');
 .mat-mdc-form-field{
     width: 98%;
     margin: 1%;
@@ -7,4 +8,9 @@
     margin: 1%;
   }
   
-  
+  .activity{
+    font-size: 250%;
+    font-weight: 900;
+    line-height: 45px;  
+    font-family: 'Noto Sans', sans-serif;
+}

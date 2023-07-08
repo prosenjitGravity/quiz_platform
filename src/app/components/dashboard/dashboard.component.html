@@ -1,0 +1,42 @@
+<!-- <app-toolbar></app-toolbar> -->
+<div class="container-fluid" style="background-color: aliceblue;">
+  <mat-card class="sidenav p-2">
+    <mat-card class="box p-2">
+      <div class="parent">
+        <div class="child d-flex justify-content-center">
+          <img class="cover" src="assets/images/login.jpg" alt="" />
+        </div>
+      </div>
+      <div class="parent">
+        <h2>Prosenjit Paul</h2>
+      </div>
+    </mat-card>
+    <mat-card class="p-2" style="margin-top: 10px;">
+      <mat-list>
+        <mat-list-item [routerLink]="['./home']" routerLinkActive="active">
+          <mat-icon matListItemIcon>home</mat-icon>
+          <div matListItemTitle>Home</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item [routerLink]="['./add-question']" routerLinkActive="active">
+          <mat-icon matListItemIcon>add_circle</mat-icon>
+          <div matListItemTitle>Add questions</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item [routerLink]="['./all-question']" routerLinkActive="active">
+          <mat-icon matListItemIcon>apps</mat-icon>
+          <div matListItemTitle >All questions</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item  [routerLink]="['./user-result']" routerLinkActive="active">
+          <mat-icon matListItemIcon>list_alt</mat-icon>
+          <div matListItemTitle>Result</div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </mat-card>
+</div>
+<div class="main-contains">
+  <app-admin-navigation></app-admin-navigation>
+  <router-outlet></router-outlet>
+</div>

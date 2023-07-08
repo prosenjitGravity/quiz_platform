@@ -1,10 +1,25 @@
-<div class="container-fluid">
-    <div class="row g-0">
-      <div class="col-md-6">
-        <img src={{login}} alt="" class="img-fluid">
+<app-toolbar></app-toolbar>
+<div class="container-fluid" style="background-color: #050c1b">
+  <div class="row g-0">
+    <div class="col-md-6">
+      <div class="p-4" style="height: 100vh">
+        <div class="">
+          <h1 class="activity" style="color: white">
+            <strong style="color: #1ba94c">"</strong>it's the idea that
+            matters.It doesn't matter where you come from because one single
+            <<span style="color: #1ba94c">{{ "idea" }}</span
+            >/> can revolutionise the world
+            <strong style="color: #1ba94c">"</strong>
+          </h1>
+          <div class="card-body">
+            <img src="assets/images/code.png" alt="" style="width: 490px" />
+          </div>
+        </div>
       </div>
-      <div class="col-md-6">
-        <form  [formGroup]="loginForm" >
+    </div>
+    <div class="col-md-6">
+      <div class="p-3" style="margin-top:80px">
+        <form [formGroup]="loginForm">
           <mat-card>
             <mat-card-header>
               <mat-card-title>Signin</mat-card-title>
@@ -13,7 +28,12 @@
               <div>
                 <mat-form-field appearance="outline">
                   <mat-label>Enter Email Address</mat-label>
-                  <input matInput placeholder="Placeholder" type="email"  formControlName="email"/>
+                  <input
+                    matInput
+                    placeholder="Placeholder"
+                    type="email"
+                    formControlName="email"
+                  />
                   <mat-icon matSuffix>email</mat-icon>
                   <mat-error>Email is <strong> required </strong></mat-error>
                 </mat-form-field>
@@ -43,14 +63,28 @@
               </div>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button  [routerLink]="'/register'" style="color:#1a73e8">Create account</button>
-              <div class="position-absolute end-0 p-4" >
-              <button mat-raised-button  (click)="saveLogin()"  [disabled]="!loginForm.valid" color="primary" >Login</button>
-            </div>
+              <button
+                mat-button
+                [routerLink]="'/register'"
+                style="color: #1a73e8"
+              >
+                Create account
+              </button>
+              <div class="position-absolute end-0 p-4">
+                <button
+                  mat-raised-button
+                  (click)="saveLogin()"
+                  [disabled]="!loginForm.valid"
+                  style="background-color: #1ba94c;color:white"
+                >
+                  Login
+                </button>
+              </div>
             </mat-card-actions>
           </mat-card>
         </form>
       </div>
     </div>
   </div>
-  
+  <app-footer></app-footer>
+</div>

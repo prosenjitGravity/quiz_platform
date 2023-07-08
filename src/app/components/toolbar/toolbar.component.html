@@ -1,12 +1,31 @@
 <mat-toolbar class="navigation-bar">
-  <span class="logo">Gravity Quiz</span>
+  <span class="logo" [routerLink]="['/']">Gravity Quiz</span>
   <span class="example-spacer"></span>
   <button
-    mat-flat-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-    [routerLink]="['/admin-login']" style="background-color: #1ba94c; color: white;"
+    mat-button
+    [routerLink]="['/exam']"
+    style="color: white"
+    routerLinkActive="active-link"
   >
-    Admin login
+    Go to Test
   </button>
+  <button
+    mat-button
+    [routerLink]="['/result']"
+    style="color: white"
+    routerLinkActive="active-link"
+  >
+    Result
+  </button>
+  <div class="example-button-row">
+    <button
+      mat-button
+      aria-label="Example icon-button with share icon"
+      [routerLink]="['/admin-login']"
+      style="color: white"
+      routerLinkActive="active-link"
+    >
+      Admin login
+    </button>
+  </div>
 </mat-toolbar>

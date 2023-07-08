@@ -8,6 +8,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { FrontPageComponent } from './components/front-page/front-page.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 //                                          Angular Material libraries
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -27,6 +28,14 @@ import { FooterComponent } from './components/footer/footer.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { TestPageComponent } from './components/test-page/test-page.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ResultComponent } from './components/result/result.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { NavigationComponent } from './navigation/navigation.component';
+import { AllQuestionComponent } from './components/dashboard/all-question/all-question.component';
+import { AdminNavigationComponent } from './components/dashboard/admin-navigation/admin-navigation.component';
+import { AddQuestionComponent } from './components/dashboard/add-question/add-question.component';
+import { AdminHomeComponent } from './components/dashboard/admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +47,13 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     AdminLoginComponent,
     FooterComponent,
     TestPageComponent,
+    ResultComponent,
+    DashboardComponent,
+    NavigationComponent,
+    AllQuestionComponent,
+    AdminNavigationComponent,
+    AddQuestionComponent,
+    AdminHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +67,15 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatListModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule,MatRadioModule, MatGridListModule, MatMenuModule, LayoutModule,MatTooltipModule,MatProgressBarModule
+    MatSidenavModule,
+    MatInputModule,
+    MatRadioModule,
+    MatGridListModule,
+    MatMenuModule,
+    LayoutModule,
+    MatTooltipModule,
+    MatProgressBarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
