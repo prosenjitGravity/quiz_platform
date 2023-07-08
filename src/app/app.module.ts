@@ -31,6 +31,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ResultComponent } from './components/result/result.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AllQuestionComponent } from './components/dashboard/all-question/all-question.component';
 import { AdminNavigationComponent } from './components/dashboard/admin-navigation/admin-navigation.component';
@@ -54,6 +55,7 @@ import { AdminHomeComponent } from './components/dashboard/admin-home/admin-home
     AdminNavigationComponent,
     AddQuestionComponent,
     AdminHomeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -75,7 +77,8 @@ import { AdminHomeComponent } from './components/dashboard/admin-home/admin-home
     LayoutModule,
     MatTooltipModule,
     MatProgressBarModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

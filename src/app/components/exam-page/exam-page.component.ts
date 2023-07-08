@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component,OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CommunicateService } from 'src/app/services/communicate.service';
 
 @Component({
   selector: 'app-exam-page',
@@ -10,7 +13,7 @@ export class ExamPageComponent implements OnInit {
   public name:any='Prosenjit'
   public userData:any=[];
   public  subject:String='Angular'
-  constructor(private builder:FormBuilder){}
+  constructor(private builder:FormBuilder, private service:CommunicateService,private http:HttpClient,private router:Router){}
   ngOnInit(): void {
       this.userData=this.builder.group(
         {
@@ -24,6 +27,9 @@ export class ExamPageComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.userData.value);
+    let loginInfo=this.userData.value;
+    this.service.Transfer.next(loginInfo);
+    this.router.navigateByUrl('/test')
     
   }
 
