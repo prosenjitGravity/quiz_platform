@@ -24,9 +24,9 @@ const routes: Routes = [
   {
     path:'nav',component:NavigationComponent
   },
-  {
-    path:'test',component:TestPageComponent
-  },
+  // {
+  //   path:'test',component:TestPageComponent
+  // },
   {
     path:'result',component:ResultComponent
   },
@@ -50,7 +50,11 @@ const routes: Routes = [
     ]
   },
   {
-    path:'my-profile',component:ProfileComponent,canActivate:[UserAuthGuard ]
+    path:'my-profile',component:ProfileComponent,canActivate:[UserAuthGuard ],children:[
+      {
+        path:'test',component:TestPageComponent
+      }
+    ]
   },
   {
     path:'**', component:NotFoundComponent

@@ -6,8 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class QuestionServiceService {
-  private get_url:string='http://localhost:3002/question';
+  private get_url:string='http://localhost:3002/question/get-question';
   private post_url:string='http://localhost:3002/question/create';
+  private check_url:string='http://localhost:3002/question/check';
   constructor(private http:HttpClient) { }
 
   getQuestions(){
@@ -15,5 +16,8 @@ export class QuestionServiceService {
   }
   addedQuestion(data:any): Observable<any>{
     return this.http.post<any>(this.post_url,data);
+  }
+  checkQuestion(data:any):Observable<any>{
+    return this.http.post(this.check_url,data);
   }
 }

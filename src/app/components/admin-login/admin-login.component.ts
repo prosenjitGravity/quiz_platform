@@ -27,9 +27,6 @@ export class AdminLoginComponent implements OnInit{
     console.log(this.loginForm.value);
     this.service.loginUser({"email":this.loginForm.value.email,"password":this.loginForm.value.password}).subscribe({
       next:(res:any)=>{
-        console.log(" login : ",res);
-        console.log("token : " + res.token)
-        console.log(res.alumni);
         this.token = res.token;
         this.user_info = res
         localStorage.setItem("user", JSON.stringify(res))

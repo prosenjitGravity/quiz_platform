@@ -14,8 +14,6 @@ export class AllQuestionComponent implements OnInit {
       {
         next:(question:any)=>{
           this.all_question=question.msg;
-          console.log(this.all_question);
-          
         },error:(ex:any)=>{
           console.log("error",ex);    
         }

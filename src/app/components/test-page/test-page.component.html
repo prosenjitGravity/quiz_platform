@@ -1,21 +1,20 @@
-<mat-toolbar>
-  <span>Welcome, {{ name }}</span>
-  <span class="example-spacer"></span>
-</mat-toolbar>
-<div class="container">
-  <div
-    *ngFor="let q of questions" 
+<div class="container" style="background-color: rgb(230, 230, 230);">
+  <div style="margin-top: 10px;"
+    *ngFor="let q of questions; let i=index" 
   >
     <mat-card style="margin-top: 15px">
-      <h1 class="text-center p-1">Question : {{ q.question }} ?</h1>
+      <h3 class="p-2">Question {{i+1}} :</h3>
+      <h1 class="p-2">
+        {{ q.question }}
+      </h1>
       <hr />
       <div class="container">
         <mat-radio-group
+          color="primary"
           aria-labelledby="example-radio-group-label"
           class="example-radio-group"
-          [(ngModel)]="favoriteSeason"
         >
-          <mat-radio-button
+          <mat-radio-button 
             class="example-radio-button"
             *ngFor="let op of q.options"
             value="{{ op }}"
@@ -25,7 +24,29 @@
           </mat-radio-button>
         </mat-radio-group>
       </div>
-      <div>Your favorite season is: {{ favoriteSeason }}</div>
     </mat-card>
+  </div>
+  <div class="card" style="margin-top: 10px;">
+    <div class=" p-3 d-flex justify-content-center">
+      <button mat-raised-button style="background-color: #1ba94c; color:white" (click)="onSubmit()" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Submit</button>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Hi, {{userDetails.first_name}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1 class="text-center ">Score : {{result.correctAnswer}}</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >Close</button>
+        <button mat-raised-button type="button" data-bs-dismiss="modal" style="background-color: #1ba94c; color:white" (click)="refresh()">Save</button>
+      </div>
+    </div>
   </div>
 </div>

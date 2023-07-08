@@ -1,7 +1,7 @@
 <div>
     <mat-toolbar class="sticky">
       <mat-toolbar-row>
-        <span [routerLink]="'/'" class="user-title">Welcome,{{ userDetails.first_name|titlecase }}</span>
+        <span  class="user-title">Welcome,{{ userDetails.first_name|titlecase }}</span>
         <span class="example-spacer"></span>
         <div>  
           <button mat-button class="project-title" [matMenuTriggerFor]="menu">
@@ -16,7 +16,7 @@
   <mat-toolbar class="secondToolbar"
                [ngClass]="{'mat-elevation-z5' : true, 'sticky' : isSticky}">
                <mat-toolbar-row>
-                <span [routerLink]="'/'" class="user-title">Welcome,{{ 'first_name'| titlecase }}</span>
+                <span [routerLink]="'/'" class="user-title">Welcome,{{ userDetails.first_name| titlecase }}</span>
                 <span class="example-spacer"></span>
                 <div>
                   <button mat-icon-button [routerLink]="['/all-post']">

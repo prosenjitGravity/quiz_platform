@@ -27,18 +27,12 @@ export class AddQuestionComponent implements OnInit {
     );
   }
   onSubmit(){
-    console.log(this.questionFormData.value);
     let question=this.questionFormData.value.question;
     let option=this.questionFormData.value.options;
     let ans=this.questionFormData.value.ans;
-    console.log(question)
-    console.log(option)
-    console.log(ans)
     this.service.addedQuestion({"question":question,'options':[option.op1,option.op2,option.op3,option.op4],"answer":ans}).subscribe(
       {
         next:(response:any)=>{
-          console.log(response.msg);
-          
         },error:(ex:any)=>{
           console.log("error : ",ex)
         }

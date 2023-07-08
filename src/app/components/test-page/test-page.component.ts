@@ -1,6 +1,8 @@
 import { Component ,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommunicateService } from 'src/app/services/communicate.service';
 import { QuestionServiceService } from 'src/app/services/question-service.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-test-page',
@@ -9,29 +11,30 @@ import { QuestionServiceService } from 'src/app/services/question-service.servic
 })
 export class TestPageComponent implements OnInit {
   public name:string=''
-  public p=0;
+  public result:any=[];
+  public token:any;
   public questions:any=[];
-  public userinfo:any=[];
-  public favoriteSeason: string='';
+  public userDetails:any=[];
   public Answer:any=[];
-  constructor(private service:CommunicateService ,private questionservice:QuestionServiceService){
-    this.service.Transfer.subscribe((res:any)=>{
-      this.userinfo=res;
-      console.log("test-page : ",this.userinfo);
-      this.name=this.userinfo.first_name;
-      console.log(this.name);  
-    })
+  constructor(private router:Router,private service:UserService ,private questionservice:QuestionServiceService){
+     this.token=localStorage.getItem('token');
+     this.service.getUserWithToken(this.token).subscribe({
+      next:(res:any)=>{
+        this.userDetails=res.msg;
+      },error:(ex:any)=>{
+        console.log("error : ",ex);
+      }
+     })
+      
     // 
     this.questionservice.getQuestions().subscribe(
       {
         next:(res:any)=>{
           this.questions=res.msg;
-          console.log(this.questions);
           res.msg.map((element:any) => {
             let object = {question: element.question, answer: ""}
             this.Answer.push(object)
           });
-          console.log(this.Answer)
         },error:(ex:any)=>{
           console.log("error : ",ex);
         }
@@ -46,7 +49,20 @@ export class TestPageComponent implements OnInit {
         if(element.question == question){
           element.answer = answer
         }
-      })
-      console.log(this.Answer)
+      })      
+  }
+  onSubmit(){
+    this.questionservice.checkQuestion({answers: this.Answer}).subscribe(
+      {
+        next:(res:any)=>{
+          this.result=res;
+        },error:(ex:any)=>{
+          console.log("error : ",ex);
+        }
+      }
+    )
+  }
+  refresh(){
+    this.router.navigateByUrl("/my-profile");
   }
 }

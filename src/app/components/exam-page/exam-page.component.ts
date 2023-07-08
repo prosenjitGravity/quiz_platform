@@ -3,6 +3,7 @@ import { Component,OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommunicateService } from 'src/app/services/communicate.service';
+import { QuestionServiceService } from 'src/app/services/question-service.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,10 +13,20 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ExamPageComponent implements OnInit {
   public name:any='Prosenjit'
-  public hide=true
+  public hide=true;
+  public question:any=[]; 
   public userData:any=[];
   public  subject:String='Angular'
-  constructor(private builder:FormBuilder, private http:HttpClient,private router:Router,private user_service:UserService){}
+  constructor(private builder:FormBuilder, private http:HttpClient,private router:Router,private user_service:UserService,private ques:QuestionServiceService){
+    this.ques.getQuestions().subscribe({
+      next:(res:any)=>{
+        this.question=res.msg;
+      },error:(ex:any)=>{
+        console.log("error : ",ex);
+      }
+    })
+
+  }
   ngOnInit(): void {
       this.userData=this.builder.group(
         {
@@ -29,9 +40,7 @@ export class ExamPageComponent implements OnInit {
       )
   }
   onSubmit(){
-    console.log(this.userData.value);
     let user=this.userData.value;
-    console.log(user)
     this.user_service.addUser(
                               {
                                 "first_name":user.first_name,

@@ -14,7 +14,6 @@ export class ResultComponent implements OnInit {
       this.service.getResult().subscribe({
         next:(result:any)=>{
           this.all_result=result.msg;
-          console.log(this.all_result);
         },error:(ex:any)=>{
           console.log("Error : ",ex);
         }

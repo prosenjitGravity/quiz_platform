@@ -23,7 +23,6 @@ export class FrontPageComponent implements OnInit {
       );
   }
   onSubmit(){
-    console.log(this.formData);
   }
 
 }

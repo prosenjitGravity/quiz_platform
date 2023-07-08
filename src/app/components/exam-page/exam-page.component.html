@@ -32,7 +32,7 @@
           </div>
           <div class="info p-2">
             <p style="font-size: 15px; font-size: bolder">No. of questions</p>
-            <h1 style="color: #068932">10 questions</h1>
+            <h1 style="color: #068932">{{question.length}} questions</h1>
           </div>
         </div>
       </div>
@@ -126,7 +126,7 @@
             </mat-card-content>
             <mat-card-actions class="d-flex justify-content-center">
               <div >
-                <button mat-raised-button [disabled]="userData.invalid" matTooltip="{{userData.valid}}" type="button" (click)="onSubmit()" style="background-color:#068932 ;color:white">Go to Test</button>
+                <button mat-raised-button [disabled]="userData.invalid" matTooltip="{{userData.valid}}" type="button" (click)="onSubmit()" style="background-color:#068932 ;color:white">Register</button>
               </div>
             </mat-card-actions>
             <!-- <mat-card-footer>
