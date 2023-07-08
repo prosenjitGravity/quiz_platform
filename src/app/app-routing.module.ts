@@ -11,6 +11,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AllQuestionComponent } from './components/dashboard/all-question/all-question.component';
 import { AdminHomeComponent } from './components/dashboard/admin-home/admin-home.component';
 import { AddQuestionComponent } from './components/dashboard/add-question/add-question.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UserAuthGuard } from './authentication/user-auth.guard';
 
 const routes: Routes = [
   {
@@ -29,7 +31,7 @@ const routes: Routes = [
     path:'result',component:ResultComponent
   },
   {
-    path:'admin-login',component:AdminLoginComponent
+    path:'login',component:AdminLoginComponent
   },
   {
     path:'dashboard', component:DashboardComponent,children:[
@@ -46,6 +48,9 @@ const routes: Routes = [
         path:'user-result', component:ResultComponent
       }
     ]
+  },
+  {
+    path:'my-profile',component:ProfileComponent,canActivate:[UserAuthGuard ]
   },
   {
     path:'**', component:NotFoundComponent

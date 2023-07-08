@@ -4,7 +4,7 @@
 </mat-toolbar>
 <div class="container">
   <div
-    *ngFor="let q of questions | paginate : { itemsPerPage: 1, currentPage: p }"
+    *ngFor="let q of questions" 
   >
     <mat-card style="margin-top: 15px">
       <h1 class="text-center p-1">Question : {{ q.question }} ?</h1>
@@ -19,17 +19,13 @@
             class="example-radio-button"
             *ngFor="let op of q.options"
             value="{{ op }}"
+            (click)="add(q.question, op)"
           >
             {{ op }}
           </mat-radio-button>
         </mat-radio-group>
       </div>
-      <!-- <div>Your favorite season is: {{ favoriteSeason }}</div> -->
+      <div>Your favorite season is: {{ favoriteSeason }}</div>
     </mat-card>
-    <div class="card" style="margin-top: 10px">
-      <div class="p-4 d-flex justify-content-center">
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
-      </div>
-    </div>
   </div>
 </div>

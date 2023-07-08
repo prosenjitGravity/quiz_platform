@@ -9,7 +9,7 @@
       </div>
       <div>
         <div class="display-5 p-3" style="font-weight: 500">
-          Welcome to Gravity Quiz {{ subject }} Skill Test
+          Welcome to Gravity Quiz Skill Test
         </div>
         <div class="p-3">
           <h1 class="text">Instructions</h1>
@@ -116,6 +116,13 @@
                 <mat-radio-button value="Male">Male</mat-radio-button>
                 <mat-radio-button value="Female">Female</mat-radio-button>
               </mat-radio-group>
+              <mat-form-field>
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
             </mat-card-content>
             <mat-card-actions class="d-flex justify-content-center">
               <div >

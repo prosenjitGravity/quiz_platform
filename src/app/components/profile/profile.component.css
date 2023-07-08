@@ -1,0 +1,93 @@
+.sidenav {
+    height: 100vh;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 63;
+    left: 0;
+    overflow-x: hidden;
+  }
+  .child{
+    height: 80px;
+    width:80px;
+    border-radius: 100%;
+    overflow:hidden;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+  }
+  .cover{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+  }
+  .parent{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .box{
+    display: inline-flex;
+    align-items: center;
+  }
+  .main-contains{
+    margin-left:300px
+  }
+  
+  
+  /* Navbar Css */
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Noto+Sans&display=swap');
+  
+  .user-title{
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+  }
+  mat-toolbar{
+    background-color: white;
+  }
+  .example-spacer {
+      flex: 1 1 auto;
+    }
+    .profile{
+      border-radius: 100%;
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      -ms-border-radius: 100%;
+      -o-border-radius: 100%;
+      width: 40px;
+      height:40px;
+      overflow: hidden;
+  }
+  .image{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+  }
+  
+  .secondToolbar {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.51);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+    top: 0;
+    height: 0;
+    opacity: 0;
+    transition-duration: 3s, 1s;
+    transition: opacity 0.89s ease-out, height 0.89s ease;
+    cursor: default;
+    user-select: none;
+    -webkit-transition: opacity 0.89s ease-out, height 0.89s ease;
+    -moz-transition: opacity 0.89s ease-out, height 0.89s ease;
+    -ms-transition: opacity 0.89s ease-out, height 0.89s ease;
+    -o-transition: opacity 0.89s ease-out, height 0.89s ease;
+  }
+  .sticky {
+    height: 10px;
+    opacity: 1;
+    z-index: 999;
+    transition: opacity 0.25s ease-out, height 0.15s ease;
+  }
+  .active{
+    background-color: #9e9e9e;
+    color:white;
+  }

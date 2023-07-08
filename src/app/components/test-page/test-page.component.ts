@@ -12,8 +12,8 @@ export class TestPageComponent implements OnInit {
   public p=0;
   public questions:any=[];
   public userinfo:any=[];
-  favoriteSeason: string='';
-  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
+  public favoriteSeason: string='';
+  public Answer:any=[];
   constructor(private service:CommunicateService ,private questionservice:QuestionServiceService){
     this.service.Transfer.subscribe((res:any)=>{
       this.userinfo=res;
@@ -27,6 +27,11 @@ export class TestPageComponent implements OnInit {
         next:(res:any)=>{
           this.questions=res.msg;
           console.log(this.questions);
+          res.msg.map((element:any) => {
+            let object = {question: element.question, answer: ""}
+            this.Answer.push(object)
+          });
+          console.log(this.Answer)
         },error:(ex:any)=>{
           console.log("error : ",ex);
         }
@@ -35,5 +40,13 @@ export class TestPageComponent implements OnInit {
   }
   ngOnInit(): void {
       
+  }
+  add(question:any, answer:any){
+      this.Answer.map((element: any)=>{
+        if(element.question == question){
+          element.answer = answer
+        }
+      })
+      console.log(this.Answer)
   }
 }

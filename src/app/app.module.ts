@@ -37,6 +37,9 @@ import { AllQuestionComponent } from './components/dashboard/all-question/all-qu
 import { AdminNavigationComponent } from './components/dashboard/admin-navigation/admin-navigation.component';
 import { AddQuestionComponent } from './components/dashboard/add-question/add-question.component';
 import { AdminHomeComponent } from './components/dashboard/admin-home/admin-home.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
@@ -55,6 +58,8 @@ import { AdminHomeComponent } from './components/dashboard/admin-home/admin-home
     AdminNavigationComponent,
     AddQuestionComponent,
     AdminHomeComponent,
+    ProfileComponent,
+    NavbarComponent,
     
   ],
   imports: [

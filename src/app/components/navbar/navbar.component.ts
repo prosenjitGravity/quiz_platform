@@ -1,0 +1,35 @@
+import { Component ,HostListener,OnInit} from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+
+@Component({
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
+})
+export class NavbarComponent implements OnInit {
+  public first_name:String='Merida'
+  public profile_image:String="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg ";
+  public user_image:String="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg ";
+  isSticky: boolean = false;
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    this.isSticky = window.pageYOffset >= 80;
+  }
+  logout(){
+  }
+  public userDetails:any=[];
+  public token:any;
+  constructor(private service:UserService){}
+  ngOnInit(): void {
+     console.log(localStorage.getItem('token'))
+     this.token=localStorage.getItem('token');
+     this.service.getUserWithToken(this.token).subscribe({
+      next:(res:any)=>{
+        this.userDetails=res.msg;
+        console.log('details : ',this.userDetails)
+      },error:(ex:any)=>{
+        console.log("error : ",ex);
+      }
+     })
+  }
+}
