@@ -6,9 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class QuestionServiceService {
-  private get_url:string='https://quiz-app-backend-pyj9.onrender.com/question/get-question';
-  private post_url:string='https://quiz-app-backend-pyj9.onrender.com/question/create';
-  private check_url:string='https://quiz-app-backend-pyj9.onrender.com/question/check';
+  private base_url:any='https://quiz-app-backend-pyj9.onrender.com/';
+  private get_url:string=`${this.base_url}question/get-question`;
+  private post_url:string=`${this.base_url}question/create`;
+  private check_url:string=`${this.base_url}question/check`;
   constructor(private http:HttpClient) { }
 
   getQuestions(){

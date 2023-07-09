@@ -5,10 +5,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private get_Url:string="https://quiz-app-backend-pyj9.onrender.com/user/";
-  private post_Url:string="https://quiz-app-backend-pyj9.onrender.com/user/register";
-  private login_Url:string="https://quiz-app-backend-pyj9.onrender.com/user/login";
-  private get_token_Url:string="https://quiz-app-backend-pyj9.onrender.com/user/my-profile";
+  private base_url:any='https://quiz-app-backend-pyj9.onrender.com/';
+  private get_Url:string=`${this.base_url}user/`;
+  private post_Url:string=`${this.base_url}user/register`;
+  private login_Url:string=`${this.base_url}user/login`;
+  private get_token_Url:string=`${this.base_url}user/my-profile`;
   constructor(private http:HttpClient) { }
   getUser(){
     return this.http.get(this.get_Url);

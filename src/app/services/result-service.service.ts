@@ -6,8 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ResultServiceService {
-  private get_url:string='https://quiz-app-backend-pyj9.onrender.com/result';
-  private post_url:string='https://quiz-app-backend-pyj9.onrender.com/result/create';
+  private base_url:any='https://quiz-app-backend-pyj9.onrender.com/';
+  private get_url:string=`${this.base_url}result`;
+  private post_url:string=`${this.base_url}result/create`;
   constructor(private http:HttpClient) { }
   getResult(){
     return this.http.get(this.get_url);
