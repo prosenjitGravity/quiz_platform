@@ -1,4 +1,5 @@
 import { Component ,HostListener,OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -15,11 +16,10 @@ export class NavbarComponent implements OnInit {
   checkScroll() {
     this.isSticky = window.pageYOffset >= 80;
   }
-  logout(){
-  }
+  
   public userDetails:any=[];
   public token:any;
-  constructor(private service:UserService){}
+  constructor(private service:UserService,private router:Router){}
   ngOnInit(): void {
      this.token=localStorage.getItem('token');
      this.service.getUserWithToken(this.token).subscribe({
@@ -29,5 +29,11 @@ export class NavbarComponent implements OnInit {
         console.log("error : ",ex);
       }
      })
+  }
+  logout(){
+    localStorage.clear();
+    alert('logout Successfully');
+    this.router.navigateByUrl('/')
+    
   }
 }

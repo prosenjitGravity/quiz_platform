@@ -75,7 +75,7 @@
                   mat-raised-button
                   (click)="saveLogin()"
                   [disabled]="!loginForm.valid"
-                  style="background-color: #1ba94c;color:white"
+                  [ngClass]="loginForm.invalid? 'a':'b'"
                 >
                   Login
                 </button>

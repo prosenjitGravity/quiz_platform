@@ -126,12 +126,12 @@
             </mat-card-content>
             <mat-card-actions class="d-flex justify-content-center">
               <div >
-                <button mat-raised-button [disabled]="userData.invalid" matTooltip="{{userData.valid}}" type="button" (click)="onSubmit()" style="background-color:#068932 ;color:white">Register</button>
+                <button mat-raised-button [disabled]="userData.invalid" matTooltip="{{userData.valid}}" type="button" (click)="onSubmit()" [ngClass]="userData.invalid? 'a':'b'">Register</button>
               </div>
-            </mat-card-actions>
-            <!-- <mat-card-footer>
+            </mat-card-actions >
+            <mat-card-footer *ngIf="userData.valid">
               <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-            </mat-card-footer> -->
+            </mat-card-footer>
           </mat-card>
         </form>
         </div>
