@@ -124,8 +124,17 @@
                 </button>
               </mat-form-field>
             </mat-card-content>
-            <mat-card-actions class="d-flex justify-content-center">
-              <div >
+            <mat-card-actions >
+              <div class="d-flex justify-content-left">
+              <button
+                mat-button
+                [routerLink]="'/login'"
+                style="color: #1a73e8"
+              >
+                Sign in instead
+              </button>
+            </div>
+              <div class="position-absolute end-0 p-4" >
                 <button mat-raised-button [disabled]="userData.invalid" matTooltip="{{userData.valid}}" type="button" (click)="onSubmit()" [ngClass]="userData.invalid? 'a':'b'">Register</button>
               </div>
             </mat-card-actions >
