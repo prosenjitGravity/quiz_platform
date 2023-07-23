@@ -35,3 +35,20 @@ btn{
   background-color: #1ba94c;
   color:white
 }
+.secondToolbar {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.51);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  top: 0;
+  height: 0;
+  opacity: 0;
+  transition-duration: 3s, 1s;
+  transition: opacity 0.89s ease-out, height 0.89s ease;
+  cursor: default;
+  user-select: none;
+  -webkit-transition: opacity 0.89s ease-out, height 0.89s ease;
+  -moz-transition: opacity 0.89s ease-out, height 0.89s ease;
+  -ms-transition: opacity 0.89s ease-out, height 0.89s ease;
+  -o-transition: opacity 0.89s ease-out, height 0.89s ease;
+}

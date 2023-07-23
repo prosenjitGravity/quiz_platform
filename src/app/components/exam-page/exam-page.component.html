@@ -15,12 +15,12 @@
           <h1 class="text">Instructions</h1>
           <mat-list role="list">
             <mat-list-item role="listitem"
-              ><mat-icon matListItemIcon>timer</mat-icon> This is a timed test.
+              ><mat-icon matListItemIcon style="color: #068932">timer</mat-icon> This is a timed test.
               Please make sure you are not interrupted during the test,<br />
               as the timer cannot be paused once started.</mat-list-item
             >
             <mat-list-item role="listitem">
-              <mat-icon matListItemIcon>wifi</mat-icon> Please ensure you have a
+              <mat-icon matListItemIcon style="color: #068932">wifi</mat-icon> Please ensure you have a
               stable internet connection.</mat-list-item
             >
           </mat-list>
@@ -109,9 +109,9 @@
                 >
               </mat-form-field>
 
-              <mat-radio-group
+              <mat-radio-group 
                 aria-label="Select an option"
-                formControlName="gender"
+                formControlName="gender"color="primary"
               >
                 <mat-radio-button value="Male">Male</mat-radio-button>
                 <mat-radio-button value="Female">Female</mat-radio-button>
@@ -129,7 +129,7 @@
                 <button mat-raised-button [disabled]="userData.invalid" matTooltip="{{userData.valid}}" type="button" (click)="onSubmit()" [ngClass]="userData.invalid? 'a':'b'">Register</button>
               </div>
             </mat-card-actions >
-            <mat-card-footer *ngIf="userData.valid">
+            <mat-card-footer *ngIf="found">
               <mat-progress-bar mode="indeterminate"></mat-progress-bar>
             </mat-card-footer>
           </mat-card>
@@ -139,3 +139,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

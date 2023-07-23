@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./exam-page.component.css']
 })
 export class ExamPageComponent implements OnInit {
+  public found:boolean=false;
   public name:any='Prosenjit'
   public hide=true;
   public question:any=[]; 
@@ -41,6 +42,7 @@ export class ExamPageComponent implements OnInit {
   }
   onSubmit(){
     let user=this.userData.value;
+    this.found=true;
     this.user_service.addUser(
                               {
                                 "first_name":user.first_name,
@@ -53,7 +55,8 @@ export class ExamPageComponent implements OnInit {
                                 next:(res:any)=>{
                                   this.router.navigateByUrl('/login') 
                                 },error:(ex:any)=>{
-                                  console.log("error : ",ex)
+                                  console.log("error : ",ex);
+                                  this.found=false;
                                 }
                               }) 
   }

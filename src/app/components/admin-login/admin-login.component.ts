@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit{
+  public found:boolean=false;
   public token:any;
   public user_info:any=[]
   public loginForm: any;
@@ -18,12 +19,13 @@ export class AdminLoginComponent implements OnInit{
   ngOnInit(): void {
       this.loginForm=this.builder.group(
         {
-          email:['',[Validators.required]],
+          email:['',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
           password:['',[Validators.required]]
         }
       )
   }
-  saveLogin(){
+  onLogin(){
+    this.found=true;
     console.log(this.loginForm.value);
     this.service.loginUser({"email":this.loginForm.value.email,"password":this.loginForm.value.password}).subscribe({
       next:(res:any)=>{
@@ -34,6 +36,7 @@ export class AdminLoginComponent implements OnInit{
         alert("login successfully")
         this.router.navigateByUrl('/my-profile');
       },error:(ex)=>{
+        this.found=false;
         console.log("error :",ex);
         alert("you are not registered user please Register");
       }
